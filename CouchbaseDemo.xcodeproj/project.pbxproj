@@ -8,11 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		7288CDA01A181502005E2800 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7288CD9F1A181502005E2800 /* AppDelegate.swift */; };
-		7288CDA21A181502005E2800 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7288CDA11A181502005E2800 /* ViewController.swift */; };
 		7288CDA51A181502005E2800 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7288CDA31A181502005E2800 /* Main.storyboard */; };
 		7288CDA71A181502005E2800 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7288CDA61A181502005E2800 /* Images.xcassets */; };
 		7288CDAA1A181502005E2800 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7288CDA81A181502005E2800 /* LaunchScreen.xib */; };
 		7288CDB61A181502005E2800 /* CouchbaseDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7288CDB51A181502005E2800 /* CouchbaseDemoTests.swift */; };
+		7288CDC31A181666005E2800 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7288CDC21A181666005E2800 /* CouchbaseLite.framework */; };
+		7288CDC51A181738005E2800 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7288CDC41A181738005E2800 /* CFNetwork.framework */; };
+		7288CDC71A18173E005E2800 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7288CDC61A18173E005E2800 /* Security.framework */; };
+		7288CDC91A181746005E2800 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7288CDC81A181746005E2800 /* SystemConfiguration.framework */; };
+		7288CDCB1A181751005E2800 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7288CDCA1A181751005E2800 /* libsqlite3.dylib */; };
+		7288CDCD1A18175C005E2800 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7288CDCC1A18175C005E2800 /* libz.dylib */; };
+		7288CDD21A181CF5005E2800 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7288CDD11A181CF5005E2800 /* Item.swift */; };
+		7288CDD41A181DA0005E2800 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7288CDD31A181DA0005E2800 /* ItemTableViewController.swift */; };
+		7288CDD61A18316A005E2800 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7288CDD51A18316A005E2800 /* Utilities.swift */; };
+		7288CDDB1A183EBD005E2800 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7288CDDA1A183EBD005E2800 /* AddItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +38,24 @@
 		7288CD9A1A181502005E2800 /* CouchbaseDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CouchbaseDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7288CD9E1A181502005E2800 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7288CD9F1A181502005E2800 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7288CDA11A181502005E2800 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7288CDA41A181502005E2800 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7288CDA61A181502005E2800 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7288CDA91A181502005E2800 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7288CDAF1A181502005E2800 /* CouchbaseDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CouchbaseDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7288CDB41A181502005E2800 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7288CDB51A181502005E2800 /* CouchbaseDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouchbaseDemoTests.swift; sourceTree = "<group>"; };
+		7288CDC21A181666005E2800 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchbaseLite.framework; path = Frameworks/CouchbaseLite.framework; sourceTree = "<group>"; };
+		7288CDC41A181738005E2800 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		7288CDC61A18173E005E2800 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7288CDC81A181746005E2800 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7288CDCA1A181751005E2800 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		7288CDCC1A18175C005E2800 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		7288CDCE1A181889005E2800 /* CouchbaseDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CouchbaseDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		7288CDD11A181CF5005E2800 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		7288CDD31A181DA0005E2800 /* ItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
+		7288CDD51A18316A005E2800 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		7288CDD71A1839D7005E2800 /* ItemTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemTableViewController.h; sourceTree = "<group>"; };
+		7288CDDA1A183EBD005E2800 /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +63,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7288CDCD1A18175C005E2800 /* libz.dylib in Frameworks */,
+				7288CDCB1A181751005E2800 /* libsqlite3.dylib in Frameworks */,
+				7288CDC91A181746005E2800 /* SystemConfiguration.framework in Frameworks */,
+				7288CDC71A18173E005E2800 /* Security.framework in Frameworks */,
+				7288CDC51A181738005E2800 /* CFNetwork.framework in Frameworks */,
+				7288CDC31A181666005E2800 /* CouchbaseLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +88,7 @@
 				7288CD9C1A181502005E2800 /* CouchbaseDemo */,
 				7288CDB21A181502005E2800 /* CouchbaseDemoTests */,
 				7288CD9B1A181502005E2800 /* Products */,
+				7288CDC11A181639005E2800 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,11 +105,16 @@
 			isa = PBXGroup;
 			children = (
 				7288CD9F1A181502005E2800 /* AppDelegate.swift */,
-				7288CDA11A181502005E2800 /* ViewController.swift */,
 				7288CDA31A181502005E2800 /* Main.storyboard */,
 				7288CDA61A181502005E2800 /* Images.xcassets */,
 				7288CDA81A181502005E2800 /* LaunchScreen.xib */,
 				7288CD9D1A181502005E2800 /* Supporting Files */,
+				7288CDCE1A181889005E2800 /* CouchbaseDemo-Bridging-Header.h */,
+				7288CDD11A181CF5005E2800 /* Item.swift */,
+				7288CDDA1A183EBD005E2800 /* AddItemViewController.swift */,
+				7288CDD71A1839D7005E2800 /* ItemTableViewController.h */,
+				7288CDD31A181DA0005E2800 /* ItemTableViewController.swift */,
+				7288CDD51A18316A005E2800 /* Utilities.swift */,
 			);
 			path = CouchbaseDemo;
 			sourceTree = "<group>";
@@ -110,6 +142,19 @@
 				7288CDB41A181502005E2800 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7288CDC11A181639005E2800 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7288CDCC1A18175C005E2800 /* libz.dylib */,
+				7288CDCA1A181751005E2800 /* libsqlite3.dylib */,
+				7288CDC81A181746005E2800 /* SystemConfiguration.framework */,
+				7288CDC61A18173E005E2800 /* Security.framework */,
+				7288CDC41A181738005E2800 /* CFNetwork.framework */,
+				7288CDC21A181666005E2800 /* CouchbaseLite.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,7 +257,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7288CDA21A181502005E2800 /* ViewController.swift in Sources */,
+				7288CDDB1A183EBD005E2800 /* AddItemViewController.swift in Sources */,
+				7288CDD21A181CF5005E2800 /* Item.swift in Sources */,
+				7288CDD41A181DA0005E2800 /* ItemTableViewController.swift in Sources */,
+				7288CDD61A18316A005E2800 /* Utilities.swift in Sources */,
 				7288CDA01A181502005E2800 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,9 +386,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = CouchbaseDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/CouchbaseDemo/CouchbaseDemo-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -348,9 +403,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = CouchbaseDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/CouchbaseDemo/CouchbaseDemo-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -407,6 +469,7 @@
 				7288CDBB1A181502005E2800 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7288CDBC1A181502005E2800 /* Build configuration list for PBXNativeTarget "CouchbaseDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +478,7 @@
 				7288CDBE1A181502005E2800 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
