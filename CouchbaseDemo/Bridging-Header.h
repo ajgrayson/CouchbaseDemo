@@ -7,3 +7,5 @@
 //
 
 #import <CouchbaseLite/CouchbaseLite.h>
+
+#import <FacebookSDK/FacebookSDK.h>

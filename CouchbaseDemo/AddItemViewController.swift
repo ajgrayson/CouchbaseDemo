@@ -20,6 +20,13 @@ class AddItemViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if(self.item != nil) {
+            self.titleTextField.text = self.item?.title
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,7 +45,11 @@ class AddItemViewController: UIViewController {
         }
         
         if self.titleTextField.text.utf16Count > 0 {
-            self.item = Item(Title: self.titleTextField.text, Category: "none")
+            if(self.item != nil) {
+                self.item?.title = self.titleTextField.text
+            } else {
+                self.item = Item(title: self.titleTextField.text, category: "none")
+            }
         }
     }
 

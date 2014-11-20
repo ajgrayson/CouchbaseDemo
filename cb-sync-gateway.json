@@ -1,0 +1,11 @@
+{
+   "databases":{
+      "default":{
+         "server":"http://localhost:8091",
+         "bucket":"default"
+      }
+   },
+   "facebook" : {
+      "register" : true
+   }
+}
