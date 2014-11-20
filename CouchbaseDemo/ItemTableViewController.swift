@@ -8,19 +8,39 @@
 
 import UIKit
 
-private let kServerUrl = NSURL(string: "http://localhost:4985/default/")
-
+// @objc etc. here so that the unwindToList func below works
 @objc(ItemTableViewController)class ItemTableViewController: UITableViewController {
 
     var database: CBLDatabase!
     
     var dataSource: CBLUITableSource!
     
-    private var _push: CBLReplication!
-    private var _pull: CBLReplication!
-    private var _syncError: NSError?
+    var syncManager: CBLSyncManager!
     
-    // var items = [Item]()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        syncManager = appDelegate.syncManager
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if (!syncManager.userIsAuthenticated()) {
+            showLoginView({
+                self.setupDatasource()
+            })
+        } else {
+            setupDatasource()
+        }
+    }
     
     func useDatabase(database: CBLDatabase!) -> Bool {
         if database == nil {
@@ -47,26 +67,7 @@ private let kServerUrl = NSURL(string: "http://localhost:4985/default/")
         return true
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-    }
-    
-    func notSignedIntoFacebook() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil);
-        let vc = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as UIViewController;
-        //self.presentViewController(vc, animated: true, completion: nil);
-        
-        self.navigationController?.presentViewController(vc, animated: true, completion: nil)
-    }
-    
-    func signedIntoFacebook() {
+    func setupDatasource() {
         if self.dataSource == nil {
             self.dataSource = CBLUITableSource()
         
@@ -78,18 +79,9 @@ private let kServerUrl = NSURL(string: "http://localhost:4985/default/")
                 self.dataSource.labelProperty = "title"    // Document property to display in the cell label
             }
         
-            self.dataSource.tableView = self.tableView
-        
-            _push = setupReplication(database.createPushReplication(kServerUrl))
-            _pull = setupReplication(database.createPullReplication(kServerUrl))
-            
-            var auth : CBLAuthenticatorProtocol = CBLAuthenticator.facebookAuthenticatorWithToken(FBSession.activeSession().accessTokenData.accessToken)
-            
-            _push.authenticator = auth
-            _pull.authenticator = auth
-            
-            _push.start()
-            _pull.start()
+//            self.dataSource.tableView = self.tableView
+//        
+
         }
         
         // self.tableView.dataSource = self.dataSource
@@ -98,22 +90,14 @@ private let kServerUrl = NSURL(string: "http://localhost:4985/default/")
         
         self.tableView.reloadData()
     }
-
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    
+    func showLoginView(completion: () -> ()) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil);
+        let vc = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as UIViewController;
         
-        if (!FBSession.activeSession().isOpen) {
-            self.notSignedIntoFacebook()
-        } else {
-            self.signedIntoFacebook()
-        }
+        self.navigationController?.presentViewController(vc, animated: true, completion: completion)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (self.dataSource?.rows != nil) {
             return self.dataSource.rows.count
@@ -195,16 +179,16 @@ private let kServerUrl = NSURL(string: "http://localhost:4985/default/")
         
     }
 
-    func setupReplication(replication: CBLReplication!) -> CBLReplication! {
-        if replication != nil {
-            replication.continuous = true
-            //            NSNotificationCenter.defaultCenter().addObserver(self,
-            //                selector: "replicationProgress:",
-            //                name: kCBLReplicationChangeNotification,
-            //                object: replication)
-        }
-        return replication
-    }
+//    func setupReplication(replication: CBLReplication!) -> CBLReplication! {
+//        if replication != nil {
+//            replication.continuous = true
+//            //            NSNotificationCenter.defaultCenter().addObserver(self,
+//            //                selector: "replicationProgress:",
+//            //                name: kCBLReplicationChangeNotification,
+//            //                object: replication)
+//        }
+//        return replication
+//    }
 
     
     var appDelegate : AppDelegate {

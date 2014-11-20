@@ -39,15 +39,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Items" id="Q3t-3K-3vE">
+                        <barButtonItem key="leftBarButtonItem" title="Login" id="64t-tl-U75">
+                            <connections>
+                                <segue destination="d3T-EV-VD4" kind="show" identifier="showLogin" id="Wnc-Gt-eQs"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mld-qC-nYJ">
                             <connections>
                                 <segue destination="7Ew-iq-pJK" kind="showDetail" identifier="AddItem" id="vSI-Qk-HzH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="d3T-EV-VD4" kind="presentation" identifier="showLogin" id="pqN-CV-UGS"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pj0-Ae-5Gb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -142,7 +144,6 @@
                     </navigationBar>
                     <connections>
                         <segue destination="XDP-nh-StK" kind="relationship" relationship="rootViewController" id="xEi-Px-2cj"/>
-                        <segue destination="d3T-EV-VD4" kind="presentation" identifier="showLoginView" id="y6w-PH-cHB"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dzq-9k-Ti3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -170,6 +171,5 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="vSI-Qk-HzH"/>
-        <segue reference="y6w-PH-cHB"/>
     </inferredMetricsTieBreakers>
 </document>

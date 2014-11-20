@@ -8,43 +8,57 @@
 
 import UIKit
 
+// Couchbase Database Name
 private let kDatabaseName = "couchbase-demo"
+
+// Couchbase Server URL
+private let kServerUrl = "http://localhost:4985/default/"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
     let database: CBLDatabase!
-
+    
+    var syncManager : CBLSyncManager!
+    
     override init() {
         database = CBLManager.sharedInstance().databaseNamed(kDatabaseName, error: nil)
     }
     
-    func application(application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool
-    {
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         if database == nil {
-            //fatalAlert("Unable to initialize Couchbase Lite")
             return false
         }
         
-        // Initialize replication:
-//        _push = setupReplication(database.createPushReplication(kServerUrl))
-//        _pull = setupReplication(database.createPullReplication(kServerUrl))
-//        _push.start()
-//        _pull.start()
+        setupSync()
         
         return true
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: NSString?, annotation: AnyObject) -> Bool {
-        //var wasHandled:Bool = FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
-        //return wasHandled
-        return FBSession.activeSession().handleOpenURL(url);
+        return syncManager.handleOpenUrl(url)
     }
     
+    func setupSync() {
+        syncManager = CBLSyncManager(database: self.database, serverUrl: kServerUrl)
         
+        if(syncManager.userIsAuthenticated()) {
+            syncManager.start()
+        }
+    }
+    
+//    func loginAndSync(complete: () -> ()) {
+//        if (syncManager.userIsAuthenticated()) {
+//            complete()
+//        } else {
+////            [_cblSync beforeFirstSync:^(NSString *userID, NSDictionary *userData, NSError **outError) {
+////                complete();
+////            }];
+//        }
+//    }
+    
 //    func applicationWillResignActive(application: UIApplication) {
 //        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
 //        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -63,10 +77,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 //    }
 //
-    func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        FBSession.activeSession().close()
-    }
+//    func applicationWillTerminate(application: UIApplication) {
+//        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+//    }
     
 }
 

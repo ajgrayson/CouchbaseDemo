@@ -10,6 +10,7 @@
 		722B52861A1C796900484362 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 722B52851A1C796900484362 /* FacebookSDK.framework */; };
 		722B52881A1C7B6F00484362 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722B52871A1C7B6F00484362 /* LoginViewController.swift */; };
 		722B528A1A1DA5ED00484362 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 722B52891A1DA5ED00484362 /* Main.storyboard */; };
+		722B528C1A1DC3B000484362 /* CBLSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722B528B1A1DC3B000484362 /* CBLSyncManager.swift */; };
 		7288CDA01A181502005E2800 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7288CD9F1A181502005E2800 /* AppDelegate.swift */; };
 		7288CDA71A181502005E2800 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7288CDA61A181502005E2800 /* Images.xcassets */; };
 		7288CDAA1A181502005E2800 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7288CDA81A181502005E2800 /* LaunchScreen.xib */; };
@@ -40,6 +41,7 @@
 		722B52851A1C796900484362 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		722B52871A1C7B6F00484362 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		722B52891A1DA5ED00484362 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		722B528B1A1DC3B000484362 /* CBLSyncManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBLSyncManager.swift; sourceTree = "<group>"; };
 		7288CD9A1A181502005E2800 /* CouchbaseDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CouchbaseDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7288CD9E1A181502005E2800 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7288CD9F1A181502005E2800 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,8 +121,9 @@
 				7288CDDA1A183EBD005E2800 /* AddItemViewController.swift */,
 				7288CDD71A1839D7005E2800 /* ItemTableViewController.h */,
 				7288CDD31A181DA0005E2800 /* ItemTableViewController.swift */,
-				7288CDD51A18316A005E2800 /* Utilities.swift */,
 				722B52871A1C7B6F00484362 /* LoginViewController.swift */,
+				722B528B1A1DC3B000484362 /* CBLSyncManager.swift */,
+				7288CDD51A18316A005E2800 /* Utilities.swift */,
 			);
 			path = CouchbaseDemo;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			files = (
 				722B52881A1C7B6F00484362 /* LoginViewController.swift in Sources */,
 				7288CDDB1A183EBD005E2800 /* AddItemViewController.swift in Sources */,
+				722B528C1A1DC3B000484362 /* CBLSyncManager.swift in Sources */,
 				7288CDD21A181CF5005E2800 /* Item.swift in Sources */,
 				7288CDD41A181DA0005E2800 /* ItemTableViewController.swift in Sources */,
 				7288CDD61A18316A005E2800 /* Utilities.swift in Sources */,

@@ -21,7 +21,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         self.fbLoginView.readPermissions = ["email"]
         
         if (FBSession.activeSession().isOpen) {
-            self.isSignedInWithFacebook()
+            self.isSignedIn()
         }
     }
 
@@ -30,8 +30,9 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func isSignedInWithFacebook() {
-        //FBSession.activeSession().accessTokenData.accessToken
+    func isSignedIn() {
+        
+        appDelegate.syncManager.start()
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -40,7 +41,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     func loginViewShowingLoggedInUser(loginView : FBLoginView!) {
         println("User Logged In")
-        self.isSignedInWithFacebook()
+        self.isSignedIn()
     }
     
     func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser) {
@@ -59,4 +60,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         println("Error: \(handleError.localizedDescription)")
     }
     
+    var appDelegate : AppDelegate {
+        return UIApplication.sharedApplication().delegate as AppDelegate
+    }
 }
