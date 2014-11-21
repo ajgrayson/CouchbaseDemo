@@ -61,7 +61,6 @@ import UIKit
                     }
                 }
             }
-            
         }
         
         return true
@@ -78,13 +77,7 @@ import UIKit
                 self.dataSource.query = query
                 self.dataSource.labelProperty = "title"    // Document property to display in the cell label
             }
-        
-//            self.dataSource.tableView = self.tableView
-//        
-
         }
-        
-        // self.tableView.dataSource = self.dataSource
         
         self.dataSource.reloadFromQuery()
         
@@ -162,13 +155,19 @@ import UIKit
         if id != nil && id != "" {
             doc = self.database.existingDocumentWithID(id)
 
-            properties = NSMutableDictionary(dictionary: doc.properties)
+            properties = NSMutableDictionary()
             properties["title"] = title
             properties["category"] = category
             
         } else {
             doc = self.database.createDocument()
-            properties = ["title": title, "category": category, "type": "item"]
+            properties = [
+                "title": title,
+                "category": category,
+                "type": "item",
+                "channels": [syncManager.getUserId()],
+                "owner": syncManager.getUserId()
+            ]
         }
         
         var error: NSError?
@@ -178,18 +177,6 @@ import UIKit
         }
         
     }
-
-//    func setupReplication(replication: CBLReplication!) -> CBLReplication! {
-//        if replication != nil {
-//            replication.continuous = true
-//            //            NSNotificationCenter.defaultCenter().addObserver(self,
-//            //                selector: "replicationProgress:",
-//            //                name: kCBLReplicationChangeNotification,
-//            //                object: replication)
-//        }
-//        return replication
-//    }
-
     
     var appDelegate : AppDelegate {
         return UIApplication.sharedApplication().delegate as AppDelegate

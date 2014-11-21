@@ -41,7 +41,6 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     func loginViewShowingLoggedInUser(loginView : FBLoginView!) {
         println("User Logged In")
-        self.isSignedIn()
     }
     
     func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser) {
@@ -50,6 +49,10 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         println("User Name: \(user.name)")
         var userEmail = user.objectForKey("email") as String
         println("User Email: \(userEmail)")
+        
+        appDelegate.syncManager.setUserId(userEmail)
+        
+        self.isSignedIn()
     }
     
     func loginViewShowingLoggedOutUser(loginView : FBLoginView!) {

@@ -20,6 +20,8 @@ class CBLSyncManager {
     
     private var authenticator : CBLAuthenticatorProtocol!
     
+    private var userId: String!
+    
     init(database: CBLDatabase, serverUrl: String) {
         self.database = database
         self.serverUrl = serverUrl
@@ -27,6 +29,14 @@ class CBLSyncManager {
     
     func userIsAuthenticated() -> Bool {
         return FBSession.activeSession().isOpen
+    }
+    
+    func setUserId(userId: String) {
+        self.userId = userId
+    }
+    
+    func getUserId() -> String {
+        return self.userId
     }
     
     func setupReplicationWithFacebookAuthentication() {
