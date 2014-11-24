@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CBLSyncManager {
+class CBLSyncManager : NSObject {
     
     private var push: CBLReplication!
     private var pull: CBLReplication!
@@ -55,8 +55,17 @@ class CBLSyncManager {
         push.authenticator = auth
         pull.authenticator = auth
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "replicationProgress:", name: kCBLReplicationChangeNotification, object: push)
+        
         push.start()
         pull.start()
+    }
+    
+    func replicationProgress(n: NSNotificationCenter) {
+        var error : NSError! = push.lastError
+        if(error != nil) {
+            println("error: " + error.description)
+        }
     }
     
     func handleOpenUrl(url: NSURL) -> Bool {
