@@ -130,9 +130,7 @@ import UIKit
             
             var doc : CBLDocument = row.document
             
-            var docContent : NSMutableDictionary = NSMutableDictionary(dictionary: doc.properties)
-            
-            vc.item = Item(id: doc.documentID, title: docContent.valueForKey("title") as String, category: docContent.valueForKey("category") as String)
+            vc.item = Item(forDocument: doc)
         }
     }
     
@@ -143,37 +141,24 @@ import UIKit
             var item: Item = source.item!
         
             // add it to the database
-            self.addItemToDatabase(item.id, title: item.title, category: item.category)
+            self.saveItem(item)
         }
     }
     
-    func addItemToDatabase(id: String?, title: String, category: String) {
+    func saveItem(item : Item) {
         var properties : NSMutableDictionary;
         
-        var doc : CBLDocument
-        
-        if id != nil && id != "" {
-            doc = self.database.existingDocumentWithID(id)
-
-            properties = NSMutableDictionary()
-            properties["title"] = title
-            properties["category"] = category
-            
-        } else {
-            doc = self.database.createDocument()
-            properties = [
-                "title": title,
-                "category": category,
-                "type": "item",
-                "channels": [syncManager.getUserId()],
-                "owner": syncManager.getUserId()
-            ]
+        if item.id == nil {
+            item.type = "item"
+            item.owner = syncManager.getUserId()
+            //item.channels = [syncManager.getUserId()]
         }
         
         var error: NSError?
+        item.save(&error)
         
-        if doc.putProperties(properties, error: &error) == nil {
-            
+        if(error != nil) {
+            println("Error saving: " + (error != nil ? error!.description : ""))
         }
         
     }

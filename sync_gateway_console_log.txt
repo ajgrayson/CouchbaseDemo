@@ -1,0 +1,78 @@
+$ ./sync_gateway /Users/johnathangrayson/Development/CouchbaseDemo/sync-gateway-config.json
+10:15:45.717614 Enabling logging: [CRUD CRUD+ HTTP HTTP+ Access Changes Changes+ Auth SSL]
+10:15:45.717701 ==== Couchbase Sync Gateway/1.0.3(81;fa9a6e7) ====
+10:15:45.717721 Configured Go to use all 4 CPUs; setenv GOMAXPROCS to override this
+10:15:45.717738 Opening db /default as bucket "sync_gateway", pool "default", server <http://192.168.1.6:8091>
+10:15:45.718154 Opening Couchbase database sync_gateway on <http://192.168.1.6:8091> as user "sync_gateway"
+10:15:45.858080     Reset guest user to config
+10:15:45.858101 Starting admin server on 192.168.1.6:4985
+10:15:45.865428 Starting server on 192.168.1.6:4984 ...
+10:16:34.289819 HTTP:  #001: GET /default/_session
+10:16:34.290843 HTTP:  #002: GET /default/_session
+10:16:34.294677 HTTP+: #002:     --> 200   (18.5 ms)
+10:16:34.294947 HTTP+: #001:     --> 200   (19.1 ms)
+10:16:34.313438 HTTP:  #003: POST /default/_facebook
+10:16:34.313481 HTTP:  #004: POST /default/_facebook
+10:16:35.130086 Access: Computed channels for "ypsslsl_panditescu_1416990118@tfbnw.net": 
+10:16:35.135619 Access: Computed channels for "ypsslsl_panditescu_1416990118@tfbnw.net": 
+10:16:35.150314 Access: Computed roles for "ypsslsl_panditescu_1416990118@tfbnw.net": 
+10:16:35.155766 Access: Computed roles for "ypsslsl_panditescu_1416990118@tfbnw.net": 
+10:16:35.254331 Auth: Saved _sync:user:ypsslsl_panditescu_1416990118@tfbnw.net: {"name":"ypsslsl_panditescu_1416990118@tfbnw.net","all_channels":{},"sequence":0,"email":"ypsslsl_panditescu_1416990118@tfbnw.net","passwordhash_bcrypt":"JDJhJDEwJHg0ODN5cTNEOGVPaVpuejc3bEpHSGV3TWF6eEQvUnJpa1ljVndiVUh3SGcwQ1Z0UTBQZFFt","rolesSince":{}}
+10:16:35.254767 HTTP+: #004:     --> 200   (951.0 ms)
+10:16:35.259910 Auth: Saved _sync:user:ypsslsl_panditescu_1416990118@tfbnw.net: {"name":"ypsslsl_panditescu_1416990118@tfbnw.net","all_channels":{},"sequence":0,"email":"ypsslsl_panditescu_1416990118@tfbnw.net","passwordhash_bcrypt":"JDJhJDEwJE1nNnB3QkxRd081T2pyZXlabGxVZE83ZlBpdVlpak9ROHUvYVlBQWtGa3FManptT1hqcG1L","rolesSince":{}}
+10:16:35.260561 HTTP+: #003:     --> 200   (957.0 ms)
+10:16:35.264648 HTTP:  #005: GET /default/_local/bf9a22b4fd6beda0e3c349bbddc8678ee97473d4  (ADMIN)
+10:16:35.264657 HTTP:  #006: GET /default/_local/f7cf69a14775ce2d871fb1e70bd352bf00b3d9a2  (ADMIN)
+10:16:35.265331 HTTP: #005:     --> 404 missing  (0.7 ms)
+10:16:35.265332 HTTP: #006:     --> 404 missing  (0.7 ms)
+10:16:35.273333 HTTP:  #007: GET /default/_changes?feed=websocket  (ADMIN)
+10:16:35.274250 HTTP+: #007:     --> 101 Upgraded to WebSocket protocol  (0.0 ms)
+10:16:35.276686 Changes: MultiChangesFeed({*}, {Since:0 Limit:0 Conflicts:true IncludeDocs:false Wait:true Continuous:true Terminator:0xc2101ef1e0}) ... 
+10:16:35.276996 Changes+: MultiChangesFeed: channels expand to channels.TimedSet{"*":0x0} ... 
+10:16:35.277027 Changes+: MultiChangesFeed waiting... 
+10:16:35.277040 Changes+: Waiting for "sync_gateway"'s count to pass 0
+10:16:36.400369 Changes+: Notifying that "sync_gateway" changed (keys="{_sync:user:ypsslsl_panditescu_1416990118@tfbnw.net}") count=2
+10:16:36.400423 Changes+: Notifying that "sync_gateway" changed (keys="{_sync:user:ypsslsl_panditescu_1416990118@tfbnw.net}") count=3
+10:16:53.595952 HTTP:  #008: POST /default/_revs_diff  (ADMIN)
+10:16:53.613170 HTTP+: #008:     --> 200   (17.5 ms)
+10:16:53.618532 HTTP:  #009: POST /default/_bulk_docs  (ADMIN)
+10:16:53.624369 CRUD+: Invoking sync on doc "C419BC4A-9ECC-4757-9D97-8F972B8D7559" rev 1-e8212b751869c1df19df7b3b19c5d27e
+10:16:53.771823 CRUD: 	Doc "C419BC4A-9ECC-4757-9D97-8F972B8D7559" in channels "{ch-ypsslsl_panditescu_1416990118@tfbnw.net}"
+10:16:53.772755 CRUD: Stored doc "C419BC4A-9ECC-4757-9D97-8F972B8D7559" / "1-e8212b751869c1df19df7b3b19c5d27e"
+10:16:53.772816 HTTP+: #009:     --> 201   (154.3 ms)
+10:16:58.779554 HTTP:  #010: PUT /default/_local/f7cf69a14775ce2d871fb1e70bd352bf00b3d9a2  (ADMIN)
+10:16:58.780105 HTTP+: #010:     --> 201   (0.6 ms)
+10:17:00.951244 WARNING: changeCache: Giving up, accepting #2 even though #1 is missing -- db.(*changeCache)._addPendingLogs() at change_cache.go:320
+10:17:00.951485 Changes+: Notifying that "sync_gateway" changed (keys="{*, ch-ypsslsl_panditescu_1416990118@tfbnw.net}") count=4
+10:17:00.951525 Changes+: MultiChangesFeed: channels expand to channels.TimedSet{"*":0x0} ... 
+10:17:00.951886 Changes+: MultiChangesFeed sending &{Seq:2 ID:C419BC4A-9ECC-4757-9D97-8F972B8D7559 Deleted:false Removed:{} Doc:map[] Changes:[map[rev:1-e8212b751869c1df19df7b3b19c5d27e]] branched:false} 
+10:17:00.951899 Changes+: MultiChangesFeed waiting... 
+10:17:00.951905 Changes+: Waiting for "sync_gateway"'s count to pass 4
+10:17:00.951932 Changes: sending 1 change(s)
+10:17:05.957887 HTTP:  #011: PUT /default/_local/bf9a22b4fd6beda0e3c349bbddc8678ee97473d4  (ADMIN)
+10:17:05.958496 HTTP+: #011:     --> 201   (0.6 ms)
+10:19:12.454470 HTTP:  #012: GET /default/_session
+10:19:12.454624 HTTP:  #013: GET /default/_session
+10:19:12.461027 HTTP+: #012:     --> 200   (45.5 ms)
+10:19:12.461027 HTTP+: #013:     --> 200   (45.4 ms)
+10:19:12.469530 HTTP:  #014: POST /default/_facebook
+10:19:12.469539 HTTP:  #015: POST /default/_facebook
+10:19:16.329376 HTTP+: #014:     --> 200   (3862.2 ms)
+10:19:16.329398 HTTP+: #015:     --> 200   (3862.0 ms)
+10:19:16.341338 HTTP:  #016: GET /default/_local/2747a8796dc0e41dd104ba46a6bff751c9f14723  (ADMIN)
+10:19:16.341345 HTTP:  #017: GET /default/_local/3dd0137090c8357df519d42a4f55d4fcc17d8de7  (ADMIN)
+10:19:16.342277 HTTP: #016:     --> 404 missing  (0.9 ms)
+10:19:16.342307 HTTP: #017:     --> 404 missing  (1.0 ms)
+10:19:16.350074 HTTP:  #018: GET /default/_changes?feed=websocket  (ADMIN)
+10:19:16.351871 HTTP+: #018:     --> 101 Upgraded to WebSocket protocol  (0.0 ms)
+10:19:16.354030 Changes: MultiChangesFeed({*}, {Since:0 Limit:0 Conflicts:true IncludeDocs:false Wait:true Continuous:true Terminator:0xc210276780}) ... 
+10:19:16.354683 Changes+: MultiChangesFeed: channels expand to channels.TimedSet{"*":0x0} ... 
+10:19:16.356292 Changes+: MultiChangesFeed sending &{Seq:2 ID:C419BC4A-9ECC-4757-9D97-8F972B8D7559 Deleted:false Removed:{} Doc:map[] Changes:[map[rev:1-e8212b751869c1df19df7b3b19c5d27e]] branched:false} 
+10:19:16.356337 Changes+: MultiChangesFeed waiting... 
+10:19:16.356350 Changes+: Waiting for "sync_gateway"'s count to pass 4
+10:19:16.356382 Changes: sending 1 change(s)
+10:19:16.360182 HTTP:  #019: GET /default/C419BC4A-9ECC-4757-9D97-8F972B8D7559?rev=1-e8212b751869c1df19df7b3b19c5d27e&revs=true&attachments=true  (ADMIN)
+10:19:16.360396 HTTP+: #019:     --> 200   (0.3 ms)
+10:19:21.372159 HTTP:  #020: PUT /default/_local/3dd0137090c8357df519d42a4f55d4fcc17d8de7  (ADMIN)
+10:19:21.373474 HTTP+: #020:     --> 201   (1.3 ms)
+

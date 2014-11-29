@@ -48,9 +48,15 @@ class AddItemViewController: UIViewController {
             if(self.item != nil) {
                 self.item?.title = self.titleTextField.text
             } else {
-                self.item = Item(title: self.titleTextField.text, category: "none")
+                self.item = Item(newDocumentInDatabase: self.appDelegate.database)
+                self.item?.title = self.titleTextField.text
+                self.item?.category = "none"
             }
         }
+    }
+    
+    var appDelegate : AppDelegate {
+        return UIApplication.sharedApplication().delegate as AppDelegate
     }
 
 }

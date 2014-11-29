@@ -8,19 +8,12 @@
 
 import Foundation
 
-class Item {
-    var id : String = ""
-    var title : String = ""
-    var category : String = ""
+class Item : CBLModel {
     
-    init(title: String, category: String) {
-        self.title = title
-        self.category = category
-    }
+    @NSManaged var id : String?
+    @NSManaged var title : String?
+    @NSManaged var category : String?
+    //@NSManaged var channels : [String]
+    @NSManaged var owner : String?
     
-    init(id: String, title: String, category: String) {
-        self.id = id
-        self.title = title
-        self.category = category
-    }
 }

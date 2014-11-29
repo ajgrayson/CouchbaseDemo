@@ -1,21 +1,25 @@
 {
-   "databases":{
-      "default":{
-         "server":"http://localhost:8091",
-         "bucket":"default",
-         "sync":`function(doc, oldDoc) {
-  requireUser(doc.owner);
-  if (oldDoc != null) {
-        if (doc.owner != oldDoc.owner) {
-            throw({forbidden: "Can't change owner"});
-        }
-    }
-    requireAccess(doc.channels);
-  channel(doc.channels);
-}`
-      }
-   },
+   "log": ["CRUD", "CRUD+", "HTTP", "HTTP+", "Access", "Changes", "Changes+","Auth", "SSL"],
+   "verbose": true,
+   "interface" : "192.168.1.6:4984",
+   "adminInterface" : "192.168.1.6:4985",
    "facebook" : {
       "register" : true
+   },
+   "databases" : {
+      "default" : {
+         "server" : "http://192.168.1.6:8091",
+         "username": "sync_gateway",
+         "password": "test",
+         "users" : {
+            "GUEST" : {
+              "disabled" : true,
+              "admin_channels": []
+            }
+         },
+         "bucket" : "sync_gateway",
+         "sync" : "function(doc, oldDoc) { if(oldDoc != null) { requireAccess('ch-' + oldDoc.owner); } else { requireAccess('ch-' + doc.owner); } channel('ch-' + doc.owner); }"
+      }
    }
 }
+
