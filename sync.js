@@ -24,3 +24,14 @@ function(doc, oldDoc) {
 	}
 	channel('ch-' + doc.owner);
 }
+
+
+
+function(doc, oldDoc) {
+    if(oldDoc != null) {
+    	requireAccess('ch-' + oldDoc.owner);
+	} else {
+		requireAccess('ch-' + doc.owner);
+	}
+	channel('ch-' + doc.owner);
+}

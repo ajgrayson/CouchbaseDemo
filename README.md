@@ -1,3 +1,3 @@
 ### Starting Sync Gateway
 
-./sync_gateway --url http://127.0.0.1:8091 --bucket default
+$ ./sync_gateway /Users/johnathangrayson/Development/CouchbaseDemo/sync-gateway-config.json
