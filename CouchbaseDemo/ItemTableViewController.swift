@@ -13,6 +13,8 @@ import UIKit
 
     var database: CBLDatabase!
     
+    var dataProvider : CBLDataProvider!
+    
     var dataSource: CBLUITableSource!
     
     var syncManager: CBLSyncManager!
@@ -27,7 +29,6 @@ import UIKit
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         syncManager = appDelegate.syncManager
-        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -67,6 +68,15 @@ import UIKit
     }
     
     func setupDatasource() {
+        self.dataSource = self.syncManager.getDataSource();
+        
+        let query = database.viewNamed("items").createQuery().asLiveQuery();
+        query.descending = true
+        
+        self.dataSource.query = query
+        self.dataSource.labelProperty = "title"    // Document property to display in the cell label
+        
+        
         if self.dataSource == nil {
             self.dataSource = CBLUITableSource()
         
