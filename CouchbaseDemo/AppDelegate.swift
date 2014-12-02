@@ -12,7 +12,7 @@ import UIKit
 private let kDatabaseName = "couchbase-demo"
 
 // Couchbase Server URL
-private let kServerUrl = "http://192.168.1.6:4985/default/"
+private let kServerUrl = "http://192.168.1.6:4984/default/"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
